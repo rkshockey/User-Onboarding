@@ -19,11 +19,11 @@ function App() {
 
   function submitForm () {
     const newUser = {
-      fname: formValues.fname,
-      lname: formValues.lname,
-      email: formValues.email,
-      password: formValues.password,
-      avatarUrl: formValues.avatarUrl
+      fname: formValues.fname.trim(),
+      lname: formValues.lname.trim(),
+      email: formValues.email.trim(),
+      password: formValues.password.trim(),
+      avatarUrl: formValues.avatarUrl.trim()
     }
     axios.post('https://reqres.in/api/users', newUser)
       .then(res => console.log(res.data))
