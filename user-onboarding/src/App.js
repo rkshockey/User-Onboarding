@@ -40,7 +40,7 @@ function App() {
       avatarUrl: formValues.avatarUrl.trim()
     }
     axios.post('https://reqres.in/api/users', newUser)
-      .then(res => console.log(res.data))
+      .then(res => setUsers([...users, res.data]))
       .catch(err => console.log(err))
     setFormValues(initialFormValues)
   }
@@ -58,18 +58,22 @@ function App() {
   }
 
   useEffect(() => {
-    axios.get('https://reqres.in/api/users')
-      .then(res => setUsers(res.data))
-      .catch(err => console.log(err))
-  }, [])
-
-  useEffect(() => {
     schema.isValid(formValues).then(valid => setDisabled(!valid))
   }, [formValues])
 
   return (
     <div className="App">
       <Form submit={submitForm} change={changeForm} values={formValues} errors={formErrors} disabled={disabled} />
+      <div className='user-block'>
+        {users.map(user => (
+          <div className='user-card'>
+            <h2>Name: {user.fname} {user.lname}</h2>
+            <p>Email: {user.email}</p>
+            <p>Password: {user.password}</p>
+            <img src={user.avatarUrl} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
