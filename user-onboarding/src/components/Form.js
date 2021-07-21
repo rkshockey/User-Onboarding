@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 function Form (props){
-    const { submit, change, values } = props
+    const { submit, change, values, errors, disabled } = props
 
     function submitForm (evt){
         evt.preventDefault()
@@ -10,7 +10,7 @@ function Form (props){
     }
 
     function changeForm (evt) {
-        const { name, value, type, checked } = evt.target;
+        const { name, value, type, checked, } = evt.target;
         const valueToUse = type === 'checkbox' ? checked : value;
         change(name, valueToUse)
     }
@@ -72,7 +72,12 @@ function Form (props){
                     checked={values.termsService}
                 />
             </label>
-            <button>Submit</button>
+            <button disabled={disabled}>Submit</button>
+            <div>{errors.lname}</div>
+            <div>{errors.email}</div>
+            <div>{errors.password}</div>
+            <div>{errors.avatarUrl}</div>
+            <div>{errors.termsService}</div>
         </form>
     )
 }
