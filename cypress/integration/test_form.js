@@ -4,6 +4,7 @@ const lnameInput = () => cy.get('input[name=lname]');
 const emailInput = () => cy.get('input[name=email]');
 const passwordInput = () => cy.get('input[name=password]');
 const serviceBox = () => cy.get('input[name=termsService]');
+const submitBtn = () => cy.get('button[id="submit"]')
 
 describe('Test user onboarding form', () => {
     beforeEach(() => {
@@ -23,7 +24,22 @@ describe('Test user onboarding form', () => {
         serviceBox().should('not.be.checked').click().should('be.checked')
     })
 
-    it('Check passwod text'), () => {
-        passwordInput().should('have.value', '').type('boopidy').should('have.value', 'boopidy')
-    }
+    it('check submit', () => {
+        submitBtn().should('be.disabled')
+        lnameInput().type('Shockey')
+        emailInput().type('rk@email.com')
+        passwordInput().type('boopity')
+        serviceBox().click()
+        submitBtn().should('not.be.disabled').click().should('be.disabled')
+        cy.contains('Shockey')
+    })
+
+    it('check validation errors', () => {
+        passwordInput().type('ab')
+        cy.contains('Password must be at least 6 characters long')
+    })
+
+    it('Check passwod text', () => {
+        passwordInput().should('have.value', '').type('shooketh').should('have.value', 'shooketh')
+    })
 })

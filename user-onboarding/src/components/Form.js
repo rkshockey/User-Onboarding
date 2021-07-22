@@ -72,7 +72,7 @@ function Form (props){
                     checked={values.termsService}
                 />
             </label>
-            <button disabled={disabled}>Submit</button>
+            <button id='submit' disabled={disabled}>Submit</button>
             <div>{errors.lname}</div>
             <div>{errors.email}</div>
             <div>{errors.password}</div>
