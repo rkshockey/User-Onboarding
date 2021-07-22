@@ -17,7 +17,7 @@ function Form (props){
 
     return (
         <form className='form' onSubmit={submitForm}>
-            <label htmlFor='fname'><p>First Name</p>
+            <label htmlFor='fname'><p>First Name </p>
                 <input
                     type='text'
                     id='fname'
@@ -26,7 +26,7 @@ function Form (props){
                     onChange={changeForm}
                 />
             </label>
-            <label htmlFor='lname'><p>Last Name</p>
+            <label htmlFor='lname'><p>Last Name </p>
                 <input
                     type='text'
                     id='lname'
@@ -35,7 +35,7 @@ function Form (props){
                     onChange={changeForm}
                 />
             </label>
-            <label htmlFor='email'><p>Email</p>
+            <label htmlFor='email'><p>Email </p>
                 <input
                     type='email'
                     id='email'
@@ -44,7 +44,7 @@ function Form (props){
                     onChange={changeForm}
                 />
             </label>
-            <label htmlFor='password'><p>Password</p>
+            <label htmlFor='password'><p>Password </p>
                 <input
                     type='text'
                     id='password'
@@ -53,7 +53,7 @@ function Form (props){
                     onChange={changeForm}
                 />
             </label>
-            <label htmlFor='avatarUrl'><p>Avatar Url</p>
+            <label htmlFor='avatarUrl'><p>Avatar Url </p>
                 <input
                     type='text'
                     id='avatarUrl'
@@ -64,7 +64,7 @@ function Form (props){
             </label>
             <img src={values.avatarUrl} />
             <label htmlFor='termsService'>
-                <p>Agree to the <a href='#'>Terms of Service</a>?</p>
+                <p>Agree to the <a href='#'>Terms of Service </a>?</p>
                 <input
                     type='checkbox'
                     name='termsService'
